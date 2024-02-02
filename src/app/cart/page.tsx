@@ -70,7 +70,10 @@ const CartPage = () => {
       }
     }
   }
-
+async function getCart() {
+  const response = await fetch('/api/date');
+  const data = await response.json();
+}
   const times = [];
   const now = new Date();
   for(let i = 10; i < 18; i++) {
