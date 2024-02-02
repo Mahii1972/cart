@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import { Calendar } from "@/components/ui/calendar";
 import React, { useEffect, useState } from "react";
 import { Suspense } from "react";
+import { useRouter } from "next/navigation";
 
 interface DisabledTimes {
   [key: string]: string[];
@@ -22,6 +23,7 @@ const CartPath: React.FC = () => {
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [selectedTimes, setSelectedTimes] = useState<string[]>([]);
   const [disabledTimes, setDisabledTimes] = useState<DisabledTimes>({});
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,6 +84,8 @@ const CartPath: React.FC = () => {
     } else {
       console.error('No date or times selected');
     }
+    router.push('/success');
+
   };
 
   const handleTimeClick = (clickedTime: string) => {
