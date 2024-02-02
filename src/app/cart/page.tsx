@@ -84,7 +84,7 @@ const CartPath: React.FC = () => {
     } else {
       console.error('No date or times selected');
     }
-    router.push('/success');
+    router.push('/cart/success');
 
   };
 
