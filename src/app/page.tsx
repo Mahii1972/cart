@@ -20,6 +20,7 @@ const Page = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div>
+        <h1 className="text-2xl font-bold mb-2">Select an item</h1>
         <select
           value={selectedItem}
           onChange={handleSelect}
