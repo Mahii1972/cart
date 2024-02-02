@@ -4,6 +4,7 @@ const pool = new Pool(config);
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
+    console.log(request);
 
     try {
         const date= await pool.query('SELECT * FROM public.cart');
