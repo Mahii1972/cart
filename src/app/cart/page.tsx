@@ -1,9 +1,17 @@
 "use client"
 import { useSearchParams ,useRouter } from "next/navigation"
 import { Calendar } from "@/components/ui/calendar"
-import React, { useEffect } from "react"
+import React, { useEffect ,Suspense} from "react"
 
 const CartPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CartContent />
+    </Suspense>
+  )
+}
+
+const CartContent = () => {
   const searchParams = useSearchParams()
   const selectedItem = searchParams.get('item')
   const [date, setDate] = React.useState<Date | undefined>(undefined);
