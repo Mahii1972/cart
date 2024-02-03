@@ -28,12 +28,17 @@ const CartPath: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/date');
+        const response = await fetch('/api/date', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json', 
+          },
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
+  
         const newDisabledTimes = data.reduce((acc: DisabledTimes, curr: any) => {
           const dateStr = new Date(curr.data).toISOString().split('T')[0];
           if (acc[dateStr]) {
@@ -43,14 +48,13 @@ const CartPath: React.FC = () => {
           }
           return acc;
         }, {});
-        
-
+  
         setDisabledTimes(newDisabledTimes);
       } catch (error) {
         console.error('Failed to fetch data:', error);
       }
     };
-
+  
     fetchData();
   }, []);
 
