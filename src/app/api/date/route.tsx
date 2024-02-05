@@ -2,6 +2,7 @@ import { Pool } from "pg";
 import config from "@/cdb";
 const pool = new Pool(config);
 import { NextResponse } from "next/server";
+export const fetchCache = 'force-no-store';
 
 export async function POST(request: Request) {
 
