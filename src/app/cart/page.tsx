@@ -4,6 +4,8 @@ import { Calendar } from "@/components/ui/calendar";
 import React, { useEffect, useState } from "react";
 import { Suspense } from "react";
 import { useRouter } from "next/navigation";
+export const fetchCache = 'force-no-store';
+
 
 interface DisabledTimes {
   [key: string]: string[];
