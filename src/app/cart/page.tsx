@@ -170,30 +170,34 @@ const CartPath: React.FC = () => {
   }
 
   return (
-    <div className="flex justify-center items-center bg-gray-100 p-5">
-      <div className="m-5 bg-white p-5 rounded shadow">
+    <div className="flex flex-col sm:flex-row md:flex-row justify-center items-center bg-gray-100 p-5">
+      <div className="m-5 bg-white p-5 rounded shadow w-full sm:w-1/2 md:w-auto">
         <p className="text-lg font-semibold mb-3">Selected item: {selectedItem}</p>
       </div>
-      <Calendar
-        mode="single"
-        selected={date}
-        onSelect={(newDate) => setDate(newDate)}
-        className="rounded-md border m-5 shadow"
-        disabled={{
-          before: new Date(),
-        }}
-      />
-      <div className="flex flex-wrap m-5 bg-white p-5 rounded shadow">
+      <div className="m-5 bg-white p-5 rounded shadow w-full sm:w-1/2 md:w-auto">
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={(newDate) => setDate(newDate)}
+          className="rounded-md border"
+          disabled={{
+            before: new Date(),
+          }}
+        />
+      </div>
+      <div className="m-5 bg-white p-5 rounded shadow w-full sm:w-1/2 md:w-auto">
         {times}
       </div>
-      <button
-        className="bg-blue-500 text-white py-2 px-4 rounded shadow"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
+      <div className="m-5 bg-white p-5 rounded shadow w-full sm:w-1/2 md:w-auto flex justify-center">
+        <button
+          className="bg-blue-500 text-white py-2 px-4 rounded shadow"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      </div>
     </div>
-  );
+  )
 };
 
 export default CartPage;
